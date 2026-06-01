@@ -1,0 +1,14 @@
+{
+  "name": "market-snapshot-root",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "backend": "cd backend && python -m uvicorn main:app --port 8001 --reload",
+    "frontend": "cd market-snapshot && npm run dev",
+    "dev": "npm run dev:all",
+    "dev:all": "npx npm-run-all --parallel backend frontend"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}
