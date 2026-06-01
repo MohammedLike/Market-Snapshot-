@@ -44,69 +44,69 @@
     }
   ],
   "keyLevels": {
-    "title": "NIFTY 50 \u00c2\u00b7 INTRADAY KEY LEVELS",
-    "min": 23000,
-    "max": 24000,
+    "title": "NIFTY 50 · INTRADAY KEY LEVELS",
+    "min": 23200,
+    "max": 24500,
     "levels": [
       {
         "label": "SUPPORT 3",
-        "value": 23850,
+        "value": 23400,
         "type": "support",
         "color": "#EF4444"
       },
       {
         "label": "WEAK BELOW",
-        "value": 24055,
+        "value": 23700,
         "type": "weak",
         "color": "#F97316"
       },
       {
         "label": "WEAK BELOW",
-        "value": 24125,
+        "value": 23850,
         "type": "weak",
         "color": "#F97316"
       },
       {
         "label": "STRONG ABOVE",
-        "value": 24255,
+        "value": 24100,
         "type": "strong",
         "color": "#22C55E"
       },
       {
         "label": "STRONG ABOVE",
-        "value": 24315,
+        "value": 24200,
         "type": "strong",
         "color": "#22C55E"
       },
       {
         "label": "RESISTANCE 2",
-        "value": 24371,
+        "value": 24350,
         "type": "resistance",
         "color": "#F59E0B"
       }
     ],
     "zones": [
       {
-        "from": 23700,
-        "to": 24055,
-        "color": "rgba(239,68,68,0.18)",
+        "from": 23200,
+        "to": 23700,
+        "color": "rgba(239,68,68,0.22)",
         "label": ""
       },
       {
-        "from": 24055,
-        "to": 24255,
+        "from": 23700,
+        "to": 24100,
         "color": "rgba(239,68,68,0.10)",
         "label": "High Selling Pressure"
       },
       {
-        "from": 24255,
+        "from": 24100,
         "to": 24500,
         "color": "rgba(34,197,94,0.12)",
         "label": ""
       }
     ],
     "currentPrice": 23547,
-    "sentiment": "High Selling Pressure",
+    "sentiment": "HIGH SELLING PRESSURE",
     "sentimentSub": "CLOSED BELOW 24,200"
   },
   "indices": [

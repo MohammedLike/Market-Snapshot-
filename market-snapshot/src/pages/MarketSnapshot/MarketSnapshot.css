@@ -190,21 +190,23 @@
    KEY LEVELS SVG
    ============================================================ */
 .key-levels-card {
-  padding: 14px 16px 10px;
+  padding: 14px 16px 14px;
   background: #FFFFFF;
   border: 1px solid #000000;
   border-radius: 8px;
+  overflow: visible;
 }
 
 .key-levels-svg-wrap {
   width: 100%;
-  overflow: hidden;
+  overflow: visible;   /* never clip labels that sit above/below the track */
 }
 
 .key-levels-svg {
   width: 100%;
   height: auto;
   display: block;
+  overflow: visible;
 }
 
 /* ============================================================
