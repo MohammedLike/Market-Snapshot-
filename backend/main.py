@@ -60,7 +60,11 @@ def _get_refresh_interval() -> int:
 async def lifespan(app: FastAPI):
     # Initial fetch on startup
     logger.info("Starting initial snapshot fetch...")
-    await _refresh_task()
+    try:
+        # Give it a bit of time on first run
+        await asyncio.wait_for(_refresh_task(), timeout=45.0)
+    except Exception as e:
+        logger.error(f"Initial fetch failed/timed out: {e}")
 
     # Schedule recurring refresh
     scheduler.add_job(
