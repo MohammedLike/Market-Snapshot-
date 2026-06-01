@@ -1,58 +1,192 @@
 {
-  "date": "30 May 2026",
-  "dayLabel": "POST-MARKET CLOSING · 30 MAY 2026",
-  "riskTags": ["BEARS IN CONTROL", "ENERGY FEARS MOUNT", "FII SELLING: ₹4,110cr"],
+  "date": "29 May 2026",
+  "dayLabel": "POST-MARKET CLOSING \u00b7 29 MAY 2026",
+  "riskTags": [
+    "BEARS IN CONTROL",
+    "ENERGY FEARS MOUNT",
+    "FII SELLING: \u00e2\u201a\u00b94,110cr"
+  ],
   "ticker": [
-    { "label": "NIFTY 50", "value": "24,125 (-0.62%)", "sign": -1 },
-    { "label": "BANK NIFTY", "value": "48,850 (-1.10%)", "sign": -1 },
-    { "label": "BRENT", "value": "$102.54 (+2.9%)", "sign": 1 },
-    { "label": "USDINR", "value": "₹94.37 (+0.12%)", "sign": 1 },
-    { "label": "DXY", "value": "98.04", "sign": 1 },
-    { "label": "DOW", "value": "+0.02%", "sign": 1 },
-    { "label": "NASDAQ", "value": "+1.71%", "sign": 1 }
+    {
+      "label": "NIFTY 50",
+      "value": "23,547.75 (-1.48%)",
+      "sign": -1
+    },
+    {
+      "label": "BANK NIFTY",
+      "value": "54,239.20 (-0.93%)",
+      "sign": -1
+    },
+    {
+      "label": "BRENT",
+      "value": "92.05 (-1.41%)",
+      "sign": -1
+    },
+    {
+      "label": "USDINR",
+      "value": "94.99 (-0.72%)",
+      "sign": -1
+    },
+    {
+      "label": "DXY",
+      "value": "98.91 (-0.09%)",
+      "sign": -1
+    },
+    {
+      "label": "DOW",
+      "value": "51,032.46 (+0.51%)",
+      "sign": 1
+    },
+    {
+      "label": "NASDAQ",
+      "value": "26,972.62 (+0.04%)",
+      "sign": 1
+    }
   ],
   "keyLevels": {
-    "title": "NIFTY 50 · INTRADAY KEY LEVELS",
-    "min": 23700,
-    "max": 24500,
+    "title": "NIFTY 50 \u00c2\u00b7 INTRADAY KEY LEVELS",
+    "min": 23000,
+    "max": 24000,
     "levels": [
-      { "label": "SUPPORT 3", "value": 23850, "type": "support", "color": "#EF4444" },
-      { "label": "WEAK BELOW", "value": 24055, "type": "weak", "color": "#F97316" },
-      { "label": "WEAK BELOW", "value": 24125, "type": "weak", "color": "#F97316" },
-      { "label": "STRONG ABOVE", "value": 24255, "type": "strong", "color": "#22C55E" },
-      { "label": "STRONG ABOVE", "value": 24315, "type": "strong", "color": "#22C55E" },
-      { "label": "RESISTANCE 2", "value": 24371, "type": "resistance", "color": "#F59E0B" }
+      {
+        "label": "SUPPORT 3",
+        "value": 23850,
+        "type": "support",
+        "color": "#EF4444"
+      },
+      {
+        "label": "WEAK BELOW",
+        "value": 24055,
+        "type": "weak",
+        "color": "#F97316"
+      },
+      {
+        "label": "WEAK BELOW",
+        "value": 24125,
+        "type": "weak",
+        "color": "#F97316"
+      },
+      {
+        "label": "STRONG ABOVE",
+        "value": 24255,
+        "type": "strong",
+        "color": "#22C55E"
+      },
+      {
+        "label": "STRONG ABOVE",
+        "value": 24315,
+        "type": "strong",
+        "color": "#22C55E"
+      },
+      {
+        "label": "RESISTANCE 2",
+        "value": 24371,
+        "type": "resistance",
+        "color": "#F59E0B"
+      }
     ],
     "zones": [
-      { "from": 23700, "to": 24055, "color": "rgba(239,68,68,0.18)", "label": "" },
-      { "from": 24055, "to": 24255, "color": "rgba(239,68,68,0.10)", "label": "High Selling Pressure" },
-      { "from": 24255, "to": 24500, "color": "rgba(34,197,94,0.12)", "label": "" }
+      {
+        "from": 23700,
+        "to": 24055,
+        "color": "rgba(239,68,68,0.18)",
+        "label": ""
+      },
+      {
+        "from": 24055,
+        "to": 24255,
+        "color": "rgba(239,68,68,0.10)",
+        "label": "High Selling Pressure"
+      },
+      {
+        "from": 24255,
+        "to": 24500,
+        "color": "rgba(34,197,94,0.12)",
+        "label": ""
+      }
     ],
-    "currentPrice": 24125,
+    "currentPrice": 23547,
     "sentiment": "High Selling Pressure",
     "sentimentSub": "CLOSED BELOW 24,200"
-    },
+  },
   "indices": [
-    { "name": "NIFTY 50", "close": "24,125.40", "change": "-150.20", "pct": "-0.62%", "sign": -1 },
-    { "name": "BANK NIFTY", "close": "48,850.15", "change": "-540.80", "pct": "-1.10%", "sign": -1 },
-    { "name": "FIN NIFTY", "close": "21,432.10", "change": "-185.40", "pct": "-0.86%", "sign": -1 },
-    { "name": "MIDCAP 100", "close": "52,140.40", "change": "+110.20", "pct": "+0.21%", "sign": 1 },
-    { "name": "SMALLCAP 100", "close": "16,850.90", "change": "+45.15", "pct": "+0.27%", "sign": 1 }
+    {
+      "name": "NIFTY 50",
+      "close": "23,547.75",
+      "change": "-150.20",
+      "pct": "-1.48%",
+      "sign": -1
+    },
+    {
+      "name": "BANK NIFTY",
+      "close": "54,239.20",
+      "change": "-540.80",
+      "pct": "-0.93%",
+      "sign": -1
+    },
+    {
+      "name": "FIN NIFTY",
+      "close": "21,432.10",
+      "change": "-185.40",
+      "pct": "-0.86%",
+      "sign": -1
+    },
+    {
+      "name": "MIDCAP 100",
+      "close": "52,140.40",
+      "change": "+110.20",
+      "pct": "+0.21%",
+      "sign": 1
+    },
+    {
+      "name": "SMALLCAP 100",
+      "close": "16,850.90",
+      "change": "+45.15",
+      "pct": "+0.27%",
+      "sign": 1
+    }
   ],
-  "advances": { "adv": 1140, "dec": 1280, "ratio": "0.89" },
+  "advances": {
+    "adv": 1140,
+    "dec": 1280,
+    "ratio": "0.89"
+  },
   "globalCues": {
     "headline": "Yields Spike as Oil Hits $102",
     "body": "Global markets reacted sharply to the collapse of peace talks. Domestic indices saw heavy selling in the final hour as Brent Crude breached the $100 mark, causing a sentiment shift.",
-    "tags": ["ENERGY INFLATION", "BOND YIELDS UP"]
+    "tags": [
+      "ENERGY INFLATION",
+      "BOND YIELDS UP"
+    ]
   },
   "niftyOutlook": {
     "title": "Market Closing Analysis",
     "body": "Nifty closed near the day's low after a failed attempt to cross 24,300. The breakdown below 24,200 is significant. Bears now eye the 23,800 floor for the next session.",
     "levels": [
-      { "label": "FINAL CLOSE", "value": "24,125", "sub": "Down 150 pts", "color": "#EF4444" },
-      { "label": "RESISTANCE HIT", "value": "24,315", "sub": "Strong rejection", "color": "#F97316" },
-      { "label": "SUPPORT BASE", "value": "24,000", "sub": "Psychological floor", "color": "#22C55E" },
-      { "label": "VOLATILITY (VIX)", "value": "15.42", "sub": "Up +4.2%", "color": "#EF4444" }
+      {
+        "label": "FINAL CLOSE",
+        "value": "24,125",
+        "sub": "Down 150 pts",
+        "color": "#EF4444"
+      },
+      {
+        "label": "RESISTANCE HIT",
+        "value": "24,315",
+        "sub": "Strong rejection",
+        "color": "#F97316"
+      },
+      {
+        "label": "SUPPORT BASE",
+        "value": "24,000",
+        "sub": "Psychological floor",
+        "color": "#22C55E"
+      },
+      {
+        "label": "VOLATILITY (VIX)",
+        "value": "15.42",
+        "sub": "Up +4.2%",
+        "color": "#EF4444"
+      }
     ]
   },
   "brentCrude": {
@@ -60,31 +194,70 @@
     "change": "+2.9%",
     "changeSign": 1,
     "prev": 99.65,
-    "prevLabel": "Prev: $99.65 · Closing High",
+    "prevLabel": "Prev: $99.65 \u00c2\u00b7 Closing High",
     "resistance": 116,
     "note": "Brent settled at $102.54, its highest in months. The sharp rally in the second half of the day put immense pressure on domestic OMCs and paints.",
-    "sparkline": [96.2, 97.1, 95.8, 98.3, 99.1, 99.65, 101.2, 102.54]
+    "sparkline": [
+      96.2,
+      97.1,
+      95.8,
+      98.3,
+      99.1,
+      99.65,
+      101.2,
+      102.54
+    ]
   },
   "optionsOI": {
     "title": "Post-Market OI Shift",
     "callOI": [
-      { "strike": 24200, "level": "High", "pct": 85 },
-      { "strike": 24300, "level": "MAX", "pct": 95 },
-      { "strike": 24500, "level": "MAX", "pct": 100 }
+      {
+        "strike": 24200,
+        "level": "High",
+        "pct": 85
+      },
+      {
+        "strike": 24300,
+        "level": "MAX",
+        "pct": 95
+      },
+      {
+        "strike": 24500,
+        "level": "MAX",
+        "pct": 100
+      }
     ],
     "putOI": [
-      { "strike": 24100, "level": "Med", "pct": 50 },
-      { "strike": 24000, "level": "High", "pct": 80 },
-      { "strike": 23800, "level": "MAX", "pct": 90 }
+      {
+        "strike": 24100,
+        "level": "Med",
+        "pct": 50
+      },
+      {
+        "strike": 24000,
+        "level": "High",
+        "pct": 80
+      },
+      {
+        "strike": 23800,
+        "level": "MAX",
+        "pct": 90
+      }
     ],
     "callWall": 24300,
     "putFloor": 24000,
     "note": "Call writing intensified at 24,200 and 24,300 strikes, suggesting limited upside for tomorrow."
   },
   "smartMoney": {
-    "title": "SMART MONEY · EOD POSITIONS",
-    "longBuildup": { "label": "Long Unwinding", "stocks": "HDFC Bank, ICICI" },
-    "shortBuildup": { "label": "Short Buildup", "stocks": "Reliance, Infy" },
+    "title": "SMART MONEY \u00c2\u00b7 EOD POSITIONS",
+    "longBuildup": {
+      "label": "Long Unwinding",
+      "stocks": "HDFC Bank, ICICI"
+    },
+    "shortBuildup": {
+      "label": "Short Buildup",
+      "stocks": "Reliance, Infy"
+    },
     "fiiLongShortRatio": {
       "label": "FII LONG-SHORT RATIO",
       "shortPct": 87.61,
@@ -94,35 +267,106 @@
   "fiiDii": {
     "fii": {
       "today": -4110,
-      "mtdLabel": "MTD Total: ₹11,072 cr Sell"
+      "mtdLabel": "MTD Total: \u00e2\u201a\u00b911,072 cr Sell"
     },
     "dii": {
       "today": 6748,
-      "mtdLabel": "MTD Total: ₹21,392 cr Buy"
+      "mtdLabel": "MTD Total: \u00e2\u201a\u00b921,392 cr Buy"
     }
   },
   "results": [
-    { "company": "SBI",         "rev": "NII +4.15%", "np": "NP +5.6%",   "revSign": 1, "npSign": 1 },
-    { "company": "MCX",         "rev": "Rev +33.6%", "np": "NP +32.1%",  "revSign": 1, "npSign": 1 },
-    { "company": "Bank of Baroda","rev": "NII +9%",  "np": "NP +11.3%",  "revSign": 1, "npSign": 1 },
-    { "company": "Bank of India","rev": "NII +11%",  "np": "NP +14.8%",  "revSign": 1, "npSign": 1 },
-    { "company": "ABB India",   "rev": "Rev +5.8%",  "np": "NP ₹1784cr", "revSign": 1, "npSign": 1 },
-    { "company": "Hyundai",     "rev": "Rev +5.4%",  "np": "NP -22.2%",  "revSign": 1, "npSign": -1 },
-    { "company": "Swiggy",      "rev": "Rev +44.7%", "np": "Loss 800cr",  "revSign": 1, "npSign": -1 },
-    { "company": "Urban Co",    "rev": "Rev +62.6%", "np": "Loss 161cr",  "revSign": 1, "npSign": -1 }
+    {
+      "company": "SBI",
+      "rev": "NII +4.15%",
+      "np": "NP +5.6%",
+      "revSign": 1,
+      "npSign": 1
+    },
+    {
+      "company": "MCX",
+      "rev": "Rev +33.6%",
+      "np": "NP +32.1%",
+      "revSign": 1,
+      "npSign": 1
+    },
+    {
+      "company": "Bank of Baroda",
+      "rev": "NII +9%",
+      "np": "NP +11.3%",
+      "revSign": 1,
+      "npSign": 1
+    },
+    {
+      "company": "Bank of India",
+      "rev": "NII +11%",
+      "np": "NP +14.8%",
+      "revSign": 1,
+      "npSign": 1
+    },
+    {
+      "company": "ABB India",
+      "rev": "Rev +5.8%",
+      "np": "NP \u00e2\u201a\u00b91784cr",
+      "revSign": 1,
+      "npSign": 1
+    },
+    {
+      "company": "Hyundai",
+      "rev": "Rev +5.4%",
+      "np": "NP -22.2%",
+      "revSign": 1,
+      "npSign": -1
+    },
+    {
+      "company": "Swiggy",
+      "rev": "Rev +44.7%",
+      "np": "Loss 800cr",
+      "revSign": 1,
+      "npSign": -1
+    },
+    {
+      "company": "Urban Co",
+      "rev": "Rev +62.6%",
+      "np": "Loss 161cr",
+      "revSign": 1,
+      "npSign": -1
+    }
   ],
   "volumeShockers": [
-    { "name": "Nuvama",    "tag": "DELIVERY" },
-    { "name": "FinCables", "tag": "BREAKDOWN" },
-    { "name": "Craftsman", "tag": "REJECTION" }
+    {
+      "name": "Nuvama",
+      "tag": "DELIVERY"
+    },
+    {
+      "name": "FinCables",
+      "tag": "BREAKDOWN"
+    },
+    {
+      "name": "Craftsman",
+      "tag": "REJECTION"
+    }
   ],
   "sectors": {
     "title": "TOP LOSING SECTORS",
-    "list": ["IT", "Auto", "Real Estate", "Oil & Gas"]
+    "list": [
+      "IT",
+      "Auto",
+      "Real Estate",
+      "Oil & Gas"
+    ]
   },
   "news": [
-    { "company": "United Breweries", "headline": "Closes down -2.4%" },
-    { "company": "CMS Info Sys",     "headline": "Post-market order win" },
-    { "company": "PB Fintech",       "headline": "Day high rejected" }
+    {
+      "company": "United Breweries",
+      "headline": "Closes down -2.4%"
+    },
+    {
+      "company": "CMS Info Sys",
+      "headline": "Post-market order win"
+    },
+    {
+      "company": "PB Fintech",
+      "headline": "Day high rejected"
+    }
   ]
 }
