@@ -14,11 +14,14 @@ from fetchers.news           import fetch_news
 from fetchers.filings        import fetch_today_filings
 from fetchers.breadth        import fetch_market_breadth
 from fetchers.heatmap        import fetch_sector_heatmap
+from fetchers.institutional    import fetch_fii_index_ratio, fetch_delivery_data
+from fetchers.events           import fetch_economic_calendar, calculate_global_alignment
 from analytics.key_levels    import calculate_key_levels
 from analytics.smart_money   import detect_smart_money
 from analytics.sentiment     import calculate_sentiment
 from analytics.volume_shockers import detect_volume_shockers
 from analytics.technical_indicators import calculate_indicators, get_vix_correlation
+from analytics.market_mood         import generate_ai_mood
 from analytics.market_analysis import (
     generate_global_cues,
     generate_nifty_outlook,
@@ -117,6 +120,27 @@ def build_snapshot() -> dict:
     vix_corr = get_vix_correlation()
     logger.info("Technical indicators & VIX correlation calculated")
 
+    # ── 7d. Institutional Pro Data ───────────────────────────
+    fii_ratio = fetch_fii_index_ratio()
+    delivery_stats = fetch_delivery_data(["RELIANCE", "HDFCBANK", "TCS", "INFY", "ITC"])
+    logger.info("Institutional pro data fetched")
+
+    # ── 7e. Events & Macro ───────────────────────────────────
+    events = fetch_economic_calendar()
+    alignment = calculate_global_alignment(market)
+    logger.info("Economic events and global alignment fetched")
+
+    # ── 7f. AI Market Mood ───────────────────────────────────
+    # Initial temporary payload to pass to generator
+    temp_data = {
+        "ticker": ticker,
+        "fiiRatio": fii_ratio,
+        "advances": breadth,
+        "niftyOutlook": {"levels": [{"value": "15"}]} # placeholder for VIX
+    }
+    ai_mood = generate_ai_mood(temp_data)
+    logger.info(f"AI Mood generated: {ai_mood['headline']}")
+
     # ── 8. News (Corporate Announcements) ────────────────────
     filings = _get_filings()
     news = [
@@ -190,6 +214,10 @@ def build_snapshot() -> dict:
         "heatmap":        heatmap,
         "technicalMetrics": tech_indicators,
         "vixCorrelation": vix_corr,
+        "fiiRatio":       fii_ratio,
+        "deliveryStats":  delivery_stats,
+        "events":         events,
+        "globalAlignment": alignment,
         "news":           news,
         "sentiment": {
             "label":      sentiment["label"],

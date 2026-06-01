@@ -18,6 +18,9 @@ import ADRGauge from './components/ADRGauge'
 import SectorHeatmap from './components/SectorHeatmap'
 import TechnicalMetrics from './components/TechnicalMetrics'
 import VIXCorrelation from './components/VIXCorrelation'
+import InstitutionalPro from './components/InstitutionalPro'
+import EconomicCalendar from './components/EconomicCalendar'
+import GlobalAlignment from './components/GlobalAlignment'
 import './MarketSnapshot.css'
 
 export default function MarketSnapshot() {
@@ -150,11 +153,12 @@ export default function MarketSnapshot() {
         {/* Col 2 */}
         <div className="col-stack">
           <ADRGauge data={data} />
-          <SectorHeatmap data={data} />
+          <InstitutionalPro data={data} />
         </div>
 
         {/* Col 3 */}
         <div className="col-stack">
+          <SectorHeatmap data={data} />
           {data.technicalNote && (
             <div className="card" style={{ background: 'var(--bg-secondary)', borderStyle: 'dashed' }}>
               <div className="card-label">TECHNICAL NOTE</div>
@@ -170,6 +174,14 @@ export default function MarketSnapshot() {
           <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr', gap: 12, marginTop: 12 }}>
             <TechnicalMetrics data={data} />
             <VIXCorrelation data={data} />
+          </div>
+        </div>
+
+        {/* ── Row 7: Macro & Events ── */}
+        <div className="full-width">
+          <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 12, marginTop: 12 }}>
+             <EconomicCalendar data={data} />
+             <GlobalAlignment data={data} />
           </div>
         </div>
 
