@@ -218,6 +218,7 @@ def build_snapshot() -> dict:
         "deliveryStats":  delivery_stats,
         "events":         events,
         "globalAlignment": alignment,
+        "aiMood":          ai_mood,
         "news":           news,
         "sentiment": {
             "label":      sentiment["label"],

@@ -21,6 +21,7 @@ import VIXCorrelation from './components/VIXCorrelation'
 import InstitutionalPro from './components/InstitutionalPro'
 import EconomicCalendar from './components/EconomicCalendar'
 import GlobalAlignment from './components/GlobalAlignment'
+import MarketMood from './components/MarketMood'
 import './MarketSnapshot.css'
 
 export default function MarketSnapshot() {
@@ -102,6 +103,11 @@ export default function MarketSnapshot() {
       {/* ── Single page grid ── */}
       <div ref={gridRef} className="snapshot-grid">
 
+        {/* AI Mood Summary — full width */}
+        <div className="full-width">
+          <MarketMood data={data} />
+        </div>
+
         {/* Row 1: Header — full width */}
         <div className="full-width">
           <Header data={data} theme={theme} onToggleTheme={toggleTheme} />
@@ -169,19 +175,15 @@ export default function MarketSnapshot() {
           )}
         </div>
 
-        {/* ── Row 6: Deep Tech Row ── */}
+        {/* ── Row 6: Deep Tech & Macro ── */}
         <div className="full-width">
-          <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr', gap: 12, marginTop: 12 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr 1fr', gap: 12, marginTop: 12 }}>
             <TechnicalMetrics data={data} />
-            <VIXCorrelation data={data} />
-          </div>
-        </div>
-
-        {/* ── Row 7: Macro & Events ── */}
-        <div className="full-width">
-          <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 12, marginTop: 12 }}>
-             <EconomicCalendar data={data} />
-             <GlobalAlignment data={data} />
+            <div className="col-stack">
+              <VIXCorrelation data={data} />
+              <GlobalAlignment data={data} />
+            </div>
+            <EconomicCalendar data={data} />
           </div>
         </div>
 
