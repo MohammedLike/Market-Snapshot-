@@ -1,11 +1,9 @@
 /**
  * useSnapshot — fetches live market data from the FastAPI backend.
  *
- * During development the backend runs at http://localhost:8000.
- * In production set VITE_API_URL in your .env file.
- *
- * Falls back to the last known good data if a refresh fails,
- * so the UI never goes blank.
+ * Backend runs at http://localhost:8001
+ * Frontend runs at http://localhost:5200
+ * Set VITE_API_URL in .env to override.
  */
 import { useState, useEffect, useRef, useCallback } from 'react'
 

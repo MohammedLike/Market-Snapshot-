@@ -7,7 +7,7 @@ const tagColors = {
   'GIFT NIFTY -165 PTS': '#8B5CF6',
 }
 
-export default function Header({ data }) {
+export default function Header({ data, theme, onToggleTheme }) {
   const { date, dayLabel, riskTags } = data
 
   return (
@@ -23,7 +23,16 @@ export default function Header({ data }) {
         <h2 className="header-date">{date}</h2>
       </div>
       <div className="header-right">
-        <span className="header-day-label">{dayLabel}</span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 4 }}>
+          <span className="header-day-label">{dayLabel}</span>
+          <button 
+            className="theme-toggle" 
+            onClick={onToggleTheme}
+            title={theme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
+          >
+            {theme === 'light' ? '🌙' : '☀️'}
+          </button>
+        </div>
         <div className="header-tags">
           {riskTags.map((tag) => (
             <span

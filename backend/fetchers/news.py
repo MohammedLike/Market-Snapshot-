@@ -26,7 +26,14 @@ def fetch_news(max_items: int = 6) -> list[dict]:
             ticker = yf.Ticker(symbol)
             raw_news = ticker.news or []
             for item in raw_news:
-                title = item.get("title", "").strip()
+                # Handle both new nested structure and old flat structure
+                content = item.get("content", {})
+                title = content.get("title") if content else item.get("title")
+                
+                if not title:
+                    continue
+                
+                title = title.strip()
                 if not title or title in seen_titles:
                     continue
                 seen_titles.add(title)

@@ -19,7 +19,6 @@ FNO_STOCKS = [
     ("SBIN",      "SBIN.NS"),
     ("BAJFINANCE","BAJFINANCE.NS"),
     ("WIPRO",     "WIPRO.NS"),
-    ("TATAMOTORS","TATAMOTORS.NS"),
     ("NUVAMA",    "NUVAMA.NS"),
     ("KALYAN",    "KALYANKJIL.NS"),
     ("NBCC",      "NBCC.NS"),

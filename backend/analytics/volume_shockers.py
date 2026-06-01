@@ -18,7 +18,6 @@ SCAN_UNIVERSE = [
     ("SBIN",        "SBIN.NS"),
     ("BAJFINANCE",  "BAJFINANCE.NS"),
     ("WIPRO",       "WIPRO.NS"),
-    ("TATAMOTORS",  "TATAMOTORS.NS"),
     ("NUVAMA",      "NUVAMA.NS"),
     ("FINCABLES",   "FINCABLES.NS"),
     ("CRAFTSMAN",   "CRAFTSMAN.NS"),
@@ -27,7 +26,6 @@ SCAN_UNIVERSE = [
     ("BRITANNIA",   "BRITANNIA.NS"),
     ("ABB",         "ABB.NS"),
     ("ZOMATO",      "ZOMATO.NS"),
-    ("PAYTM",       "PAYTM.NS"),
     ("ADANIENT",    "ADANIENT.NS"),
 ]
 

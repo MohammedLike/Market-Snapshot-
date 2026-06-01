@@ -14,7 +14,7 @@ SYMBOLS = {
     "NIFTY 50":      "^NSEI",
     "BANK NIFTY":    "^NSEBANK",
     "FIN NIFTY":     "NIFTY_FIN_SERVICE.NS",
-    "MIDCAP 100":    "^CNXMDCP",
+    "MIDCAP 100":    "^CNXMID",
     "SMALLCAP 100":  "^CNXSC",
     "BRENT":         "BZ=F",
     "USDINR":        "INR=X",

@@ -11,10 +11,14 @@ from fetchers.market_data    import fetch_all, fetch_sparkline
 from fetchers.options_oi     import fetch_options_oi
 from fetchers.fii_dii        import fetch_fii_dii
 from fetchers.news           import fetch_news
+from fetchers.filings        import fetch_today_filings
+from fetchers.breadth        import fetch_market_breadth
+from fetchers.heatmap        import fetch_sector_heatmap
 from analytics.key_levels    import calculate_key_levels
 from analytics.smart_money   import detect_smart_money
 from analytics.sentiment     import calculate_sentiment
 from analytics.volume_shockers import detect_volume_shockers
+from analytics.technical_indicators import calculate_indicators, get_vix_correlation
 from analytics.market_analysis import (
     generate_global_cues,
     generate_nifty_outlook,
@@ -24,6 +28,22 @@ from analytics.market_analysis import (
 logger = logging.getLogger(__name__)
 
 IST = pytz.timezone("Asia/Kolkata")
+
+# ── Filings cache (5-minute TTL, separate from main 60s cache) ──
+import time as _time
+_filings_cache: dict = {"data": None, "ts": 0}
+_FILINGS_TTL = 5 * 60   # 5 minutes
+
+def _get_filings() -> list:
+    """Returns cached filings or fetches fresh ones if TTL expired."""
+    now = _time.time()
+    if _filings_cache["data"] is None or (now - _filings_cache["ts"]) > _FILINGS_TTL:
+        logger.info("Filings cache expired — fetching fresh filings")
+        _filings_cache["data"] = fetch_today_filings(max_items=8)
+        _filings_cache["ts"]   = now
+    else:
+        logger.info("Filings cache hit")
+    return _filings_cache["data"]
 
 
 def build_snapshot() -> dict:
@@ -66,8 +86,9 @@ def build_snapshot() -> dict:
 
     # ── 5. Sentiment ──────────────────────────────────────────
     global_avg_pct = _avg_pct(market, ["DOW", "NASDAQ", "S&P 500"])
-    adv = 1200   # placeholder — NSE breadth not in yfinance
-    dec = 1100
+    breadth = fetch_market_breadth()
+    adv = breadth["adv"]
+    dec = breadth["dec"]
     sentiment = calculate_sentiment(
         nifty_pct=nifty_pct,
         adv=adv,
@@ -86,9 +107,26 @@ def build_snapshot() -> dict:
     shockers = detect_volume_shockers(max_results=5)
     logger.info(f"Volume shockers: {len(shockers)}")
 
-    # ── 8. News ───────────────────────────────────────────────
-    news = fetch_news(max_items=6)
-    logger.info(f"News fetched: {len(news)} items")
+    # ── 7b. Sector Heatmap ────────────────────────────────────
+    heatmap = fetch_sector_heatmap()
+    logger.info(f"Heatmap: {len(heatmap)} sectors")
+
+    # ── 7c. Technical Metrics (DMA/RSI) ──────────────────────
+    tech_symbols = ["^NSEI", "^NSEBANK", "RELIANCE.NS", "TCS.NS", "HDFCBANK.NS"]
+    tech_indicators = calculate_indicators(tech_symbols)
+    vix_corr = get_vix_correlation()
+    logger.info("Technical indicators & VIX correlation calculated")
+
+    # ── 8. News (Corporate Announcements) ────────────────────
+    filings = _get_filings()
+    news = [
+        {"company": f["company"], "headline": f["rev"]}
+        for f in filings[:6]
+    ]
+    if not news:
+        news = fetch_news(max_items=6)
+    
+    logger.info(f"News (Filings): {len(news)} items")
 
     # ── 9. Analysis text ──────────────────────────────────────
     global_cues   = generate_global_cues(market)
@@ -121,9 +159,9 @@ def build_snapshot() -> dict:
         "ticker":   ticker,
         "keyLevels": key_levels,
         "indices":  indices,
-        "advances": {"adv": adv, "dec": dec, "ratio": str(round(adv / dec, 2)) if dec else "1.0"},
+        "advances": breadth,
         "globalCues":   global_cues,
-        "niftyOutlook": nifty_outlook,
+        "niftyOutlook": generate_nifty_outlook(nifty, key_levels, adv, dec, vix_val),
         "brentCrude": {
             "price":      brent.get("val",        95.0),
             "change":     f"{brent.get('change_pct', 0):+.2f}%",
@@ -146,9 +184,12 @@ def build_snapshot() -> dict:
                 "mtdLabel": fii_dii["dii"]["mtdLabel"],
             },
         },
-        "results":        _placeholder_results(),   # Q4 results — static until earnings API
+        "results":        filings,
         "volumeShockers": shockers,
         "sectors":        sectors,
+        "heatmap":        heatmap,
+        "technicalMetrics": tech_indicators,
+        "vixCorrelation": vix_corr,
         "news":           news,
         "sentiment": {
             "label":      sentiment["label"],
@@ -160,7 +201,7 @@ def build_snapshot() -> dict:
         "_meta": {
             "generated_at": now_ist.isoformat(),
             "nifty_spot":   nifty_spot,
-            "data_sources": ["yfinance", "NSE (OI)", "NSE (FII/DII)"],
+            "data_sources": ["yfinance", "NSE (OI)", "NSE (FII/DII)", "NSE/BSE (Filings)"],
         },
     }
 
@@ -248,16 +289,4 @@ def _brent_note(brent: dict) -> str:
         return f"Brent relatively stable at ${val:.2f} ({pct:+.1f}%)."
 
 
-def _placeholder_results() -> list:
-    """
-    Q4 results — kept as last-known data.
-    In a full production system, this would be fetched from an earnings API.
-    """
-    return [
-        {"company": "SBI",          "rev": "NII +4.15%", "np": "NP +5.6%",   "revSign": 1,  "npSign": 1},
-        {"company": "MCX",          "rev": "Rev +33.6%", "np": "NP +32.1%",  "revSign": 1,  "npSign": 1},
-        {"company": "Bank of Baroda","rev": "NII +9%",   "np": "NP +11.3%",  "revSign": 1,  "npSign": 1},
-        {"company": "Bank of India", "rev": "NII +11%",  "np": "NP +14.8%",  "revSign": 1,  "npSign": 1},
-        {"company": "Hyundai",       "rev": "Rev +5.4%", "np": "NP -22.2%",  "revSign": 1,  "npSign": -1},
-        {"company": "Swiggy",        "rev": "Rev +44.7%","np": "Loss 800cr",  "revSign": 1,  "npSign": -1},
-    ]
+
