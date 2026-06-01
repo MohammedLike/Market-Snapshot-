@@ -16,6 +16,8 @@ import NewsBoard from './components/NewsBoard'
 import IndicesClose from './components/IndicesClose'
 import ADRGauge from './components/ADRGauge'
 import SectorHeatmap from './components/SectorHeatmap'
+import TechnicalMetrics from './components/TechnicalMetrics'
+import VIXCorrelation from './components/VIXCorrelation'
 import './MarketSnapshot.css'
 
 export default function MarketSnapshot() {
@@ -161,6 +163,14 @@ export default function MarketSnapshot() {
               </p>
             </div>
           )}
+        </div>
+
+        {/* ── Row 6: Deep Tech Row ── */}
+        <div className="full-width">
+          <div style={{ display: 'grid', gridTemplateColumns: '1.5fr 1fr', gap: 12, marginTop: 12 }}>
+            <TechnicalMetrics data={data} />
+            <VIXCorrelation data={data} />
+          </div>
         </div>
 
       </div>
